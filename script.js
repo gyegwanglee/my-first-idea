@@ -95,4 +95,32 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // Initialize subtle floating ambient particles for blue cosmic feel
+  function initAmbientParticles() {
+    const particleCount = 20;
+    const colors = ['#60A5FA', '#93C5FD', '#38BDF8', '#3B82F6'];
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      p.className = 'ambient-particle';
+      const size = Math.random() * 3 + 2;
+      const duration = Math.random() * 14 + 10;
+      const delay = Math.random() * -20;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.backgroundColor = color;
+      p.style.boxShadow = `0 0 8px ${color}`;
+      p.style.left = `${Math.random() * 100}vw`;
+      p.style.top = `${Math.random() * 100}vh`;
+      p.style.animationDuration = `${duration}s`;
+      p.style.animationDelay = `${delay}s`;
+      
+      document.body.appendChild(p);
+    }
+  }
+
+  initAmbientParticles();
 });
+

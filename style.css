@@ -1,14 +1,14 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
-  --bg-color: #030712;
-  --card-bg: rgba(10, 20, 42, 0.7);
-  --card-border: rgba(59, 130, 246, 0.2);
-  --card-border-glow: rgba(96, 165, 250, 0.5);
+  --bg-color: #020617;
+  --card-bg: rgba(8, 20, 48, 0.75);
+  --card-border: rgba(59, 130, 246, 0.32);
+  --card-border-glow: rgba(96, 165, 250, 0.75);
   
   --text-primary: #FFFFFF;
-  --text-secondary: #93C5FD;
-  --text-muted: #60A5FA;
+  --text-secondary: #BAE6FD;
+  --text-muted: #93C5FD;
   
   --primary-blue: #3B82F6;
   --deep-blue: #1D4ED8;
@@ -35,12 +35,12 @@ html, body {
   user-select: none;
 }
 
-/* Background Ambient Orbs - Blue Themed */
+/* Background Ambient Orbs - Vivid Deep & Electric Blues */
 .ambient-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(130px);
-  opacity: 0.55;
+  filter: blur(140px);
+  opacity: 0.6;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
@@ -48,32 +48,32 @@ html, body {
 }
 
 .glow-1 {
-  width: 580px;
-  height: 580px;
-  background: radial-gradient(circle, #2563EB 0%, rgba(37, 99, 235, 0) 70%);
-  top: 10%;
-  left: 15%;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, #2563EB 0%, rgba(37, 99, 235, 0.05) 70%, transparent 100%);
+  top: 8%;
+  left: 12%;
   animation-duration: 14s;
 }
 
 .glow-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #0284C7 0%, rgba(2, 132, 199, 0) 70%);
-  bottom: 10%;
-  right: 15%;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, #0284C7 0%, rgba(2, 132, 199, 0.05) 70%, transparent 100%);
+  bottom: 8%;
+  right: 12%;
   animation-duration: 18s;
   animation-delay: -5s;
 }
 
 .glow-3 {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, #38BDF8 0%, rgba(56, 189, 248, 0) 70%);
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, #38BDF8 0%, rgba(56, 189, 248, 0.05) 70%, transparent 100%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.3;
+  opacity: 0.35;
   animation-duration: 22s;
 }
 
@@ -82,37 +82,37 @@ html, body {
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(45px, -35px) scale(1.1);
+    transform: translate(50px, -40px) scale(1.12);
   }
   100% {
-    transform: translate(-35px, 45px) scale(0.92);
+    transform: translate(-40px, 50px) scale(0.9);
   }
 }
 
-/* Grid pattern with blue tint */
+/* Grid pattern with elegant blue tint */
 .grid-overlay {
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    linear-gradient(to right, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 85%);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Cursor Glow Following - Electric Blue */
+/* Cursor Glow Following - Glowing Azure/Blue Aura */
 .cursor-glow {
   position: absolute;
-  width: 450px;
-  height: 450px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25), transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, opacity 0.3s;
+  transition: opacity 0.3s ease;
   z-index: 1;
   opacity: 0;
 }
@@ -128,22 +128,22 @@ html, body {
   perspective: 1000px;
 }
 
-/* Glass Card - Blue Harmonized */
+/* Glass Card - Harmonized Blue Glassmorphism */
 .glass-card {
   position: relative;
-  background: var(--card-bg);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
+  background: radial-gradient(circle at 50% 0%, rgba(30, 64, 175, 0.2), transparent 70%), var(--card-bg);
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
   border: 1px solid var(--card-border);
   border-radius: 36px;
-  padding: 64px 72px;
-  max-width: 680px;
+  padding: 68px 76px;
+  max-width: 720px;
   width: 90vw;
   text-align: center;
   box-shadow: 
-    0 25px 60px -15px rgba(2, 6, 23, 0.85),
-    0 0 50px -15px rgba(37, 99, 235, 0.35),
-    inset 0 1px 2px rgba(147, 197, 253, 0.25);
+    0 25px 65px -15px rgba(2, 6, 23, 0.9),
+    0 0 60px -10px rgba(37, 99, 235, 0.4),
+    inset 0 1px 2px rgba(186, 230, 253, 0.35);
   transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   animation: cardFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -151,9 +151,9 @@ html, body {
 .glass-card:hover {
   border-color: var(--card-border-glow);
   box-shadow: 
-    0 35px 75px -15px rgba(2, 6, 23, 0.95),
-    0 0 55px rgba(59, 130, 246, 0.45),
-    inset 0 1px 3px rgba(191, 219, 254, 0.35);
+    0 35px 80px -15px rgba(2, 6, 23, 0.95),
+    0 0 70px rgba(59, 130, 246, 0.55),
+    inset 0 1px 4px rgba(191, 219, 254, 0.5);
 }
 
 @keyframes cardFadeIn {
@@ -167,21 +167,21 @@ html, body {
   }
 }
 
-/* Badge */
+/* Badge - Blue Pill */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 8px 20px;
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(96, 165, 250, 0.38);
   border-radius: 100px;
   margin-bottom: 28px;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: #BFDBFE;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 2px 12px rgba(37, 99, 235, 0.2);
+  color: #BAE6FD;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 2px 16px rgba(37, 99, 235, 0.25);
 }
 
 .badge-dot {
@@ -198,39 +198,42 @@ html, body {
   50% { opacity: 0.4; transform: scale(0.8); }
 }
 
-/* Main Title - Large size & Blue Color */
+/* Main Title - Extra Large Size & Rich Vibrant Blue Color */
 .main-title {
-  font-size: clamp(2.8rem, 7.5vw, 4.4rem);
+  font-size: clamp(3.2rem, 9.2vw, 5.4rem);
   font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  margin-bottom: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
   word-break: keep-all;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 10%, #93C5FD 35%, #3B82F6 70%, #1D4ED8 100%);
+  /* Rich, vivid blue gradient from electric sky to vibrant royal & deep sapphire blue */
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 32%, #2563EB 68%, #1D4ED8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  filter: drop-shadow(0 4px 24px rgba(59, 130, 246, 0.55));
-  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 6px 30px rgba(37, 99, 235, 0.7));
+  transition: filter 0.35s ease, transform 0.35s ease;
 }
 
 .glass-card:hover .gradient-text {
-  filter: drop-shadow(0 6px 36px rgba(96, 165, 250, 0.8));
-  transform: scale(1.02);
+  filter: drop-shadow(0 8px 45px rgba(59, 130, 246, 0.9));
+  transform: scale(1.025);
 }
 
-/* Sub-quote */
+/* Sub-quote - Harmonized Ice Blue */
 .sub-quote {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 400;
-  color: #94A3B8;
-  line-height: 1.65;
-  margin-bottom: 40px;
+  color: #BAE6FD;
+  line-height: 1.7;
+  margin-bottom: 42px;
   word-break: keep-all;
   letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(2, 6, 23, 0.5);
+  opacity: 0.92;
 }
 
 /* Interactive Button - Blue Glowing */
@@ -243,17 +246,19 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.4), rgba(14, 165, 233, 0.4));
-  border: 1px solid rgba(147, 197, 253, 0.35);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.75), rgba(2, 132, 199, 0.8));
+  border: 1px solid rgba(186, 230, 253, 0.45);
   color: #FFFFFF;
-  padding: 14px 34px;
+  padding: 16px 36px;
   border-radius: 100px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   font-family: inherit;
   cursor: pointer;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.3);
+  backdrop-filter: blur(16px);
+  box-shadow: 
+    0 8px 25px rgba(37, 99, 235, 0.4),
+    0 0 15px rgba(56, 189, 248, 0.25);
   transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
   position: relative;
   overflow: hidden;
@@ -266,15 +271,17 @@ html, body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transition: 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: 0.55s;
 }
 
 .interactive-btn:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.65), rgba(14, 165, 233, 0.65));
-  border-color: rgba(191, 219, 254, 0.6);
-  box-shadow: 0 10px 32px rgba(37, 99, 235, 0.55);
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.9), rgba(2, 132, 199, 0.95));
+  border-color: rgba(224, 242, 254, 0.75);
+  box-shadow: 
+    0 12px 35px rgba(37, 99, 235, 0.65),
+    0 0 25px rgba(56, 189, 248, 0.45);
 }
 
 .interactive-btn:hover::before {
@@ -286,12 +293,41 @@ html, body {
 }
 
 .btn-icon {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   transition: transform 0.25s ease;
 }
 
 .interactive-btn:hover .btn-icon {
-  transform: rotate(12deg) scale(1.15);
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* Ambient Floating Dust / Star Particles */
+.ambient-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #60A5FA;
+  box-shadow: 0 0 8px #93C5FD;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-120px) translateX(25px);
+    opacity: 0;
+  }
 }
 
 /* Particle Explosion on click */
@@ -300,7 +336,7 @@ html, body {
   pointer-events: none;
   border-radius: 50%;
   z-index: 100;
-  animation: explode 0.8s ease-out forwards;
+  animation: explode 0.85s ease-out forwards;
 }
 
 @keyframes explode {
@@ -317,15 +353,21 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .glass-card {
-    padding: 44px 28px;
+    padding: 46px 24px;
     border-radius: 28px;
   }
   
   .main-title {
-    font-size: 2.4rem;
+    font-size: clamp(2.5rem, 8.5vw, 3.2rem);
   }
   
   .sub-quote {
-    font-size: 1rem;
+    font-size: 1.02rem;
+    margin-bottom: 34px;
+  }
+
+  .interactive-btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
   }
 }
