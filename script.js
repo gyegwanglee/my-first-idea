@@ -2,23 +2,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const card = document.getElementById('idea-card');
   const inspireBtn = document.getElementById('inspire-btn');
   const cursorGlow = document.getElementById('cursor-glow');
+  const mainTitleText = document.querySelector('#main-title .gradient-text');
+  const badgeText = document.querySelector('.badge-text');
   const subQuote = document.querySelector('.sub-quote');
 
-  const quotes = [
-    '"위대한 모든 혁신은 아주 작은 생각 하나에서 시작됩니다."',
-    '"상상할 수 있는 모든 것은 현실이 될 수 있습니다."',
-    '"시작하는 방법은 말을 멈추고 행동하기 시작하는 것입니다."',
-    '"오늘 심은 생각의 씨앗이 내일의 울창한 숲이 됩니다."',
-    '"가장 훌륭한 아이디어는 언제나 용기 있는 첫걸음 뒤에 찾아옵니다."'
+  // 총 4개의 문장 후보
+  const sentences = [
+    '오늘도 힘내세요!',
+    '오늘도 해냈어요!',
+    '조금씩 나아지고 있어요.',
+    '이대로 계속 가봅시다.'
   ];
 
-  let quoteIndex = 0;
+  const subQuotes = [
+    '"위대한 모든 혁신은 아주 작은 생각 하나에서 시작됩니다."',
+    '"당신의 노력이 결실을 맺는 날이 차곡차곡 다가오고 있습니다."',
+    '"오늘의 작은 걸음이 내일의 커다란 도약이 됩니다."',
+    '"지치지 않고 걸어가는 당신의 모든 날을 응원합니다."'
+  ];
+
+  let sentenceIndex = 0;
 
   // Mouse move cursor glow effect
   window.addEventListener('mousemove', (e) => {
-    cursorGlow.style.opacity = '1';
-    cursorGlow.style.left = `${e.clientX}px`;
-    cursorGlow.style.top = `${e.clientY}px`;
+    if (cursorGlow) {
+      cursorGlow.style.opacity = '1';
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    }
 
     // 3D Card Tilt Effect
     if (card) {
@@ -39,33 +50,71 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('mouseleave', () => {
-    cursorGlow.style.opacity = '0';
+    if (cursorGlow) cursorGlow.style.opacity = '0';
     if (card) {
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     }
   });
 
   // Inspire button interaction & particle burst
-  inspireBtn.addEventListener('click', (e) => {
-    // Switch Quote with fade transition
-    quoteIndex = (quoteIndex + 1) % quotes.length;
-    subQuote.style.opacity = '0';
-    subQuote.style.transform = 'translateY(6px)';
-    subQuote.style.transition = 'all 0.25s ease';
+  if (inspireBtn) {
+    inspireBtn.addEventListener('click', (e) => {
+      // Switch main sentence and sub quote with smooth fade transition
+      sentenceIndex = (sentenceIndex + 1) % sentences.length;
 
-    setTimeout(() => {
-      subQuote.textContent = quotes[quoteIndex];
-      subQuote.style.opacity = '1';
-      subQuote.style.transform = 'translateY(0)';
-    }, 250);
+      if (mainTitleText) {
+        mainTitleText.style.opacity = '0';
+        mainTitleText.style.transform = 'translateY(-6px)';
+        mainTitleText.style.transition = 'all 0.18s ease';
+      }
 
-    // Create Sparkles / Particles
-    createParticleBurst(e.clientX, e.clientY);
-  });
+      if (subQuote) {
+        subQuote.style.opacity = '0';
+        subQuote.style.transform = 'translateY(6px)';
+        subQuote.style.transition = 'all 0.18s ease';
+      }
+
+      setTimeout(() => {
+        if (mainTitleText) {
+          mainTitleText.textContent = sentences[sentenceIndex];
+          mainTitleText.style.opacity = '1';
+          mainTitleText.style.transform = 'translateY(0)';
+        }
+        if (subQuote) {
+          subQuote.textContent = subQuotes[sentenceIndex];
+          subQuote.style.opacity = '1';
+          subQuote.style.transform = 'translateY(0)';
+        }
+        if (badgeText) {
+          badgeText.textContent = `Cheer Up • ${sentences[sentenceIndex]}`;
+        }
+
+        // Update button color theme dynamically based on current sentence
+        inspireBtn.classList.remove('btn-theme-yellow', 'btn-theme-orange', 'btn-theme-green');
+        if (sentenceIndex === 1) {
+          inspireBtn.classList.add('btn-theme-yellow'); // 오늘도 해냈어요! -> 노란색
+        } else if (sentenceIndex === 2) {
+          inspireBtn.classList.add('btn-theme-orange'); // 조금씩 나아지고 있어요. -> 주황색
+        } else if (sentenceIndex === 3) {
+          inspireBtn.classList.add('btn-theme-green');  // 이대로 계속 가봅시다. -> 초록색
+        }
+      }, 180);
+
+      // Create Sparkles / Particles
+      createParticleBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2);
+    });
+  }
 
   function createParticleBurst(x, y) {
     const particleCount = 24;
-    const colors = ['#3B82F6', '#60A5FA', '#93C5FD', '#0284C7', '#38BDF8', '#2563EB', '#FFFFFF'];
+    let colors = ['#3B82F6', '#60A5FA', '#93C5FD', '#0284C7', '#38BDF8', '#FFFFFF'];
+    if (sentenceIndex === 1) {
+      colors = ['#EAB308', '#FACC15', '#FEF08A', '#CA8A04', '#FFFFFF']; // Yellow theme
+    } else if (sentenceIndex === 2) {
+      colors = ['#F97316', '#FB923C', '#FFEDD5', '#EA580C', '#FFFFFF']; // Orange theme
+    } else if (sentenceIndex === 3) {
+      colors = ['#10B981', '#34D399', '#D1FAE5', '#059669', '#FFFFFF']; // Green theme
+    }
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
