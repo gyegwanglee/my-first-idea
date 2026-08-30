@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function createParticleBurst(x, y) {
     const particleCount = 24;
-    let colors = ['#3B82F6', '#60A5FA', '#93C5FD', '#0284C7', '#38BDF8', '#FFFFFF'];
+    let colors = ['#10B981', '#34D399', '#6EE7B7', '#059669', '#A7F3D0', '#FFFFFF'];
     if (sentenceIndex === 1) {
       colors = ['#EAB308', '#FACC15', '#FEF08A', '#CA8A04', '#FFFFFF']; // Yellow theme
     } else if (sentenceIndex === 2) {
